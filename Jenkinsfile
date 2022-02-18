@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Run builds') {
             parallel {
-                stage('Node install') { 
+                stage('Node install') {
                     agent { label 'u20-nodejs16-yarn' }
                     steps {
                         sh 'cd node && npm install' 
@@ -15,10 +15,7 @@ pipeline {
                         sh 'cd maven && mvn clean install' 
                     }
                 }
-                }
+            }
         }
-
-        
     }
 }
-
